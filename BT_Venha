@@ -1,1 +1,80 @@
+#btvn1
+def tron_mang(a, b):
+    c = []
+    n = min(len(a), len(b))
+    
+    # Lấy min từng cặp
+    for i in range(n):
+        c.append(min(a[i], b[i]))
+    
+    # Thêm phần dư
+    if len(a) > len(b):
+        c.extend(a[n:])
+    else:
+        c.extend(b[n:])
+    
+    return c
 
+# Test
+a = [3, 9, 1, 4]
+b = [2, 7, 4, 3, 2, 8]
+print(tron_mang(a, b))
+
+#btvn2
+def tong_tam_giac_tren_cheo_phu(a):
+    n = len(a)
+    s = 0
+    for i in range(n):
+        for j in range(n):
+            if i + j <= n - 1:
+                s += a[i][j]
+    return s
+#b
+def doi_am_thanh_duong(a):
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            if a[i][j] < 0:
+                a[i][j] = abs(a[i][j])
+#c
+def thay_chan(a, x):
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            if a[i][j] % 2 == 0:
+                a[i][j] = x
+#d
+def toan_chan(a):
+    for row in a:
+        for x in row:
+            if x % 2 != 0:
+                return False
+    return True
+#e
+def doi_xung(a):
+    n = len(a)
+    for i in range(n):
+        for j in range(n):
+            if a[i][j] != a[j][i]:
+                return False
+    return True
+#f
+def cheo_chinh_tang(a):
+    n = len(a)
+    for i in range(n - 1):
+        if a[i][i] >= a[i+1][i+1]:
+            return False
+    return True
+#g
+def xuat_tam_giac_duoi_cheo_phu(a):
+    n = len(a)
+    for i in range(n):
+        for j in range(n):
+            if i + j >= n - 1:
+                print(a[i][j], end=" ")
+        print()
+#h
+def cheo_phu_giam(a):
+    n = len(a)
+    for i in range(n - 1):
+        if a[i][n-1-i] <= a[i+1][n-2-i]:
+            return False
+    return True
